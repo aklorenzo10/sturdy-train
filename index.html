@@ -6,6 +6,15 @@
     <title>A1 Detailing & Volcano Golf Course Partnership</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    
+    <!-- 
+    CRITICAL CHANGE: This meta tag is the new, primary redirect method.
+    It is handled by the browser and is not dependent on JavaScript execution,
+    making it the most reliable way to force the redirection.
+    It instantly (0 seconds) redirects to your Mixo Contact page with the VGC-REFER code.
+    -->
+    <meta http-equiv="refresh" content="0; url=https://www.mixo.io/site/a-1-auto-detail-ivpcg/contact?ref=VGC-REFER">
+
     <style>
         body {
             font-family: 'Inter', sans-serif;
@@ -16,6 +25,7 @@
 </head>
 <body class="flex items-center justify-center p-4">
 
+    <!-- The user will see this loading message for a split second before the meta refresh kicks in -->
     <div id="loadingMessage" class="max-w-md w-full bg-white shadow-xl rounded-xl p-8 text-center border-t-4 border-green-600">
         <svg class="mx-auto h-12 w-12 text-green-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
@@ -29,31 +39,20 @@
     </div>
 
     <script>
-        // --- Automated Tracking Logic ---
+        // --- Local Storage Tracking Logic (Still runs to set redundancy) ---
 
         // 1. Define the unique referral source code
         const referralCode = "VGC-REFER";
         
-        // 2. Define the target booking URL (A1's actual booking site)
-        // **FINAL URL Confirmed:** Mixo Contact Page for booking.
-        const bookingUrl = "https://www.mixo.io/site/a-1-auto-detail-ivpcg/contact";
-
-        // 3. Store the code in local storage for redundancy (in case the redirect fails or the client navigates away)
+        // 2. Store the code in local storage for redundancy
         try {
             localStorage.setItem('a1_referral_source', referralCode);
         } catch (e) {
             console.error("Local Storage not supported or failed to save referral code.");
         }
 
-        // 4. Construct the final URL with the tracking parameter
-        const finalRedirectUrl = `${bookingUrl}?ref=${referralCode}`;
-
-        // 5. Execute the immediate redirect
-        window.onload = function() {
-            // The setTimeout was removed to ensure the redirect fires instantly and reliably
-            // without being blocked by browser security restrictions on delayed redirects.
-            window.location.href = finalRedirectUrl;
-        }
+        // NOTE: The JavaScript redirect logic (window.onload/window.location.href) 
+        // has been removed as the HTML <meta refresh> is now handling the redirection.
     </script>
 </body>
 </html>
