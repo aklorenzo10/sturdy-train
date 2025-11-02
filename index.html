@@ -8,12 +8,11 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
     
     <!-- 
-    CRITICAL CHANGE: This meta tag is the new, primary redirect method.
-    It is handled by the browser and is not dependent on JavaScript execution,
-    making it the most reliable way to force the redirection.
-    It instantly (0 seconds) redirects to your Mixo Contact page with the VGC-REFER code.
+    CRITICAL FIX: The previous URL was generating a "NoSuchKey" error, meaning the server could not find the exact path.
+    We are removing the '/contact' path and redirecting to the secure base URL of your Mixo site.
+    This is the most reliable way to ensure the site loads correctly before the tracking code is applied.
     -->
-    <meta http-equiv="refresh" content="0; url=https://www.mixo.io/site/a-1-auto-detail-ivpcg/contact?ref=VGC-REFER">
+    <meta http-equiv="refresh" content="0; url=https://www.mixo.io/site/a-1-auto-detail-ivpcg/?ref=VGC-REFER">
 
     <style>
         body {
