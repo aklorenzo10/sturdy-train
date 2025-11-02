@@ -50,9 +50,9 @@
 
         // 5. Execute the immediate redirect
         window.onload = function() {
-            setTimeout(() => {
-                window.location.href = finalRedirectUrl;
-            }, 1000); // 1 second delay to allow the welcome message to be read
+            // The setTimeout was removed to ensure the redirect fires instantly and reliably
+            // without being blocked by browser security restrictions on delayed redirects.
+            window.location.href = finalRedirectUrl;
         }
     </script>
 </body>
